@@ -630,6 +630,8 @@ func resourceMsSqlServerRead(d *pluginsdk.ResourceData, meta interface{}) error 
 
 			if props.Administrators != nil {
 				d.Set("azuread_administrator", flattenMsSqlServerAdministrators(*props.Administrators))
+			} else {
+				d.Set("azuread_administrator", nil)
 			}
 		}
 
